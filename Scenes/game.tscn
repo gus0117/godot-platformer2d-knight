@@ -566,3 +566,12 @@ position = Vector2(-70, -141)
 
 [node name="Slime" parent="." instance=ExtResource("6_qfax0")]
 position = Vector2(-47, 68)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 204.0
+offset_bottom = 18.0
+text = "A, D to move left and right"
