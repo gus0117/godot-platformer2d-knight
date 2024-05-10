@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfa0kckdpoeip"]
+[gd_scene load_steps=18 format=3 uid="uid://dfa0kckdpoeip"]
 
 [ext_resource type="PackedScene" uid="uid://bggcos2kphti4" path="res://Scenes/player.tscn" id="1_afwty"]
 [ext_resource type="Texture2D" uid="uid://bcymsiuvt43jq" path="res://Assets/sprites/world_tileset.png" id="2_54s82"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b522hdkor2xj" path="res://Scenes/coin.tscn" id="4_c3nnh"]
 [ext_resource type="PackedScene" uid="uid://bqmrr8bhfyh37" path="res://Scenes/killzone.tscn" id="5_udfv4"]
 [ext_resource type="PackedScene" uid="uid://bp5k08wsff2k3" path="res://Scenes/slime.tscn" id="6_qfax0"]
+[ext_resource type="FontFile" uid="uid://dbxxwv0iw2ie5" path="res://Assets/fonts/PixelOperator8.ttf" id="7_ngdod"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="8_o48an"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cft1s"]
 texture = ExtResource("2_54s82")
@@ -535,19 +537,19 @@ shape = SubResource("WorldBoundaryShape2D_8ex3y")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("4_c3nnh")]
-position = Vector2(120, 64)
+position = Vector2(120, 71)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("4_c3nnh")]
-position = Vector2(145, 68)
+position = Vector2(145, 73)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("4_c3nnh")]
-position = Vector2(169, 64)
+position = Vector2(169, 71)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("4_c3nnh")]
-position = Vector2(313, -1)
+position = Vector2(313, 7)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("4_c3nnh")]
-position = Vector2(359, -2)
+position = Vector2(359, 7)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("4_c3nnh")]
 position = Vector2(288, -75)
@@ -574,4 +576,23 @@ offset_left = 1.0
 offset_top = -5.0
 offset_right = 204.0
 offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("7_ngdod")
+theme_override_font_sizes/font_size = 8
 text = "A, D to move left and right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_o48an")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 327.0
+offset_top = -105.0
+offset_right = 530.0
+offset_bottom = -82.0
+theme_override_fonts/font = ExtResource("7_ngdod")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins"
+horizontal_alignment = 1
+vertical_alignment = 1
